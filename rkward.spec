@@ -1,17 +1,18 @@
 Summary:	GUI for the R-project
 Summary(pl):	Interfejs dla R
 Name:		rkward
-Version:	0.2.9
+Version:	0.3.0
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	db0ddf34db8b501382d1aee64b64c837
+# Source0-md5:	a7234c2d18d7569efbc8c837b244564f
 URL:		http://rkward.sourceforge.net/
-BuildRequires:	R-base
+BuildRequires:	R-base >= 2.0.0
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
+Requires:	R-base >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,12 +48,8 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_libdir}/R/library}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install rkward/rkward.desktop $RPM_BUILD_ROOT%{_desktopdir}
-export R_HOME=%{_libdir}/R
-export PERL5LIB=$R_HOME/share/perl/
 cd rkward/rbackend/rpackages
-%{_libdir}/R/bin/INSTALL rkward --library=$RPM_BUILD_ROOT%{_libdir}/R/library/
-
-# %find_lang %{name} --with-kde
+R CMD INSTALL %{name} --library=$RPM_BUILD_ROOT%{_libdir}/R/library/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -76,3 +73,5 @@ fi
 %{_iconsdir}/*/*/*/*.png
 %{_libdir}/R/library/%{name}
 %{_kdedocdir}/en/%{name}
+%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/%{name}.mo
+%lang(it) %{_datadir}/locale/it/LC_MESSAGES/%{name}.mo
