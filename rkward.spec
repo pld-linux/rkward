@@ -1,12 +1,12 @@
 Summary:	GUI for the R-project
 Summary(pl):	Interfejs dla R
 Name:		rkward
-Version:	0.3.0
+Version:	0.3.1
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	a7234c2d18d7569efbc8c837b244564f
+# Source0-md5:	54323e767dc33191fb43cabdc9b01118
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	R-base >= 2.0.0
 BuildRequires:	automake
@@ -28,7 +28,7 @@ RKWard stara siê po³±czyæ moc jêzyka R z (wzglêdn±) ³atwo¶ci± u¿ycia
 komercyjnych narzêdzi typu SPSS.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %build
 export kde_htmldir=%{_kdedocdir}
