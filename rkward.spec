@@ -50,6 +50,7 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_libdir}/R/library}
 install rkward/rkward.desktop $RPM_BUILD_ROOT%{_desktopdir}
 cd rkward/rbackend/rpackages
 R CMD INSTALL %{name} --library=$RPM_BUILD_ROOT%{_libdir}/R/library/
+cd -
 
 %find_lang %{name} --with-kde
 
