@@ -1,13 +1,12 @@
 Summary:	GUI for the R-project
 Summary(pl):	Interfejs dla R
 Name:		rkward
-Version:	0.2.8
-Release:	3
+Version:	0.2.9
+Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	aa874192895ca0d83fc0311599c87c98
-Patch0:		%{name}-desktop.patch
+# Source0-md5:	db0ddf34db8b501382d1aee64b64c837
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	R-base
 BuildRequires:	automake
@@ -29,7 +28,6 @@ komercyjnych narzêdzi typu SPSS.
 
 %prep
 %setup -q
-%patch0
 
 %build
 export kde_htmldir=%{_kdedocdir}
@@ -54,7 +52,7 @@ export PERL5LIB=$R_HOME/share/perl/
 cd rkward/rbackend/rpackages
 %{_libdir}/R/bin/INSTALL rkward --library=$RPM_BUILD_ROOT%{_libdir}/R/library/
 
-%find_lang %{name} --with-kde
+# %find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,7 +67,7 @@ if [ -f %{_libdir}/R/bin/Rcmd ];then
  R_HOME=%{_libdir}/R ../bin/Rcmd perl ../share/perl/build-help.pl --htmllist)
 fi
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %doc README TODO AUTHORS
 %attr(755,root,root) %{_bindir}/%{name}
@@ -77,3 +75,4 @@ fi
 %{_datadir}/apps/%{name}
 %{_iconsdir}/*/*/*/*.png
 %{_libdir}/R/library/%{name}
+%{_kdedocdir}/en/%{name}
