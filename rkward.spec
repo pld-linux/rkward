@@ -40,19 +40,26 @@ CXXFLAGS="%{rpmcflags} -I%{_includedir}/R"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_libdir}/R/library}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# %find_lang %{name} --with-kde
 install rkward/rkward.desktop $RPM_BUILD_ROOT%{_desktopdir}
+cp -r rkward/rbackend/rpackages/%{name} $RPM_BUILD_ROOT%{_libdir}/R/library
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+%post
+(cd %{_libdir}/R/library; umask 022; cat */CONTENTS > ../doc/html/search/index.txt
+ R_HOME=%{_libdir}/R ../bin/Rcmd perl ../share/perl/build-help.pl --htmllist)
+
+%postun
+if [ -f %{_libdir}/R/bin/Rcmd ];then
+(cd %{_libdir}/R/library; umask 022; cat */CONTENTS > ../doc/html/search/index.txt
+ R_HOME=%{_libdir}/R ../bin/Rcmd perl ../share/perl/build-help.pl --htmllist)
+fi
 
 %files
 %defattr(644,root,root,755)
@@ -64,3 +71,4 @@ rm -rf $RPM_BUILD_ROOT
 # %{_datadir}/apps/katepart/syntax/r.xml
 %{_iconsdir}/*/*/*/*.png
 %lang(en) %{_kdedocdir}/en/%{name}
+%{_libdir}/R/library/%{name}
