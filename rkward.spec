@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	aa874192895ca0d83fc0311599c87c98
+Patch0:		%{name}-desktop.patch
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	R-base
 BuildRequires:	kdelibs-devel
@@ -27,6 +28,7 @@ komercyjnych narzêdzi typu SPSS.
 
 %prep
 %setup -q
+%patch0
 
 %build
 export kde_htmldir=%{_kdedocdir}
