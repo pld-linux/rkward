@@ -51,6 +51,8 @@ install rkward/rkward.desktop $RPM_BUILD_ROOT%{_desktopdir}
 cd rkward/rbackend/rpackages
 R CMD INSTALL %{name} --library=$RPM_BUILD_ROOT%{_libdir}/R/library/
 
+%find_lang %{name} --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -64,7 +66,7 @@ if [ -f %{_libdir}/R/bin/Rcmd ];then
  R_HOME=%{_libdir}/R ../bin/Rcmd perl ../share/perl/build-help.pl --htmllist)
 fi
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc README TODO AUTHORS
 %attr(755,root,root) %{_bindir}/%{name}
@@ -72,6 +74,3 @@ fi
 %{_datadir}/apps/%{name}
 %{_iconsdir}/*/*/*/*.png
 %{_libdir}/R/library/%{name}
-%{_kdedocdir}/en/%{name}
-%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/%{name}.mo
-%lang(it) %{_datadir}/locale/it/LC_MESSAGES/%{name}.mo
