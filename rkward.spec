@@ -2,7 +2,7 @@ Summary:	GUI for the R-project
 Summary(pl):	Interfejs dla R
 Name:		rkward
 Version:	0.2.8
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -60,6 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_datadir}/apps/%{name}
-%{_datadir}/apps/katepart/syntax/r.xml
+# already in kdelibs
+# %{_datadir}/apps/katepart/syntax/r.xml
 %{_iconsdir}/*/*/*/*.png
 %lang(en) %{_kdedocdir}/en/%{name}
