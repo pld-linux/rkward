@@ -2,7 +2,7 @@ Summary:	GUI for the R-project
 Summary(pl):	Interfejs dla R
 Name:		rkward
 Version:	0.2.8
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -46,7 +46,10 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_libdir}/R/library}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install rkward/rkward.desktop $RPM_BUILD_ROOT%{_desktopdir}
-cp -r rkward/rbackend/rpackages/%{name} $RPM_BUILD_ROOT%{_libdir}/R/library
+export R_HOME=%{_libdir}/R
+export PERL5LIB=$R_HOME/share/perl/
+cd rkward/rbackend/rpackages
+%{_libdir}/R/bin/INSTALL rkward --library=$RPM_BUILD_ROOT%{_libdir}/R/library/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -67,8 +70,6 @@ fi
 %attr(755,root,root) %{_bindir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_datadir}/apps/%{name}
-# already in kdelibs
-# %{_datadir}/apps/katepart/syntax/r.xml
 %{_iconsdir}/*/*/*/*.png
 %lang(en) %{_kdedocdir}/en/%{name}
 %{_libdir}/R/library/%{name}
