@@ -33,7 +33,7 @@ komercyjnych narzêdzi typu SPSS.
 %build
 export kde_htmldir=%{_kdedocdir}
 export kde_libs_htmldir=%{_kdedocdir}
-cp -f %{_datadir}/automake/config.sub admin
+cp -f /usr/share/automake/config.sub admin
 CXXFLAGS="%{rpmcflags} -I%{_includedir}/R"
 %configure \
 	--with-qt-libraries=%{_libdir}
@@ -49,7 +49,7 @@ install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_libdir}/R/library}
 
 install rkward/rkward.desktop $RPM_BUILD_ROOT%{_desktopdir}
 cd rkward/rbackend/rpackages
-R CMD INSTALL %{name} --library=$RPM_BUILD_ROOT%{_libdir}/R/library/
+R CMD INSTALL %{name} --library=$RPM_BUILD_ROOT%{_libdir}/R/library
 cd -
 
 %find_lang %{name} --with-kde
