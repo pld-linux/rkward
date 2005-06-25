@@ -73,5 +73,5 @@ fi
 %attr(755,root,root) %{_bindir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_datadir}/apps/%{name}
-%{_iconsdir}/*/*/*/*.png
+%{_iconsdir}/hicolor/*/*/*.png
 %{_libdir}/R/library/%{name}
