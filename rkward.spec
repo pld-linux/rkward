@@ -1,12 +1,12 @@
 Summary:	GUI for the R-project
 Summary(pl):	Interfejs dla R
 Name:		rkward
-Version:	0.3.2
+Version:	0.3.4
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://dl.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	f0b62c8ebe581e81d2634cfe5c915240
+# Source0-md5:	87b20698228bdb211b17fcb3385ec93a
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	R-base >= 2.0.0
 BuildRequires:	automake
@@ -73,5 +73,5 @@ fi
 %attr(755,root,root) %{_bindir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_datadir}/apps/%{name}
-%{_iconsdir}/hicolor/*/*/*.png
+%{_iconsdir}/crystalsvg/*/*/*.png
 %{_libdir}/R/library/%{name}
