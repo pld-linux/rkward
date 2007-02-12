@@ -1,5 +1,5 @@
 Summary:	GUI for the R-project
-Summary(pl.UTF-8):   Interfejs dla R
+Summary(pl.UTF-8):	Interfejs dla R
 Name:		rkward
 Version:	0.3.4
 Release:	1
