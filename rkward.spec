@@ -1,5 +1,5 @@
 Summary:	GUI for the R-project
-Summary(pl):	Interfejs dla R
+Summary(pl.UTF-8):   Interfejs dla R
 Name:		rkward
 Version:	0.3.4
 Release:	1
@@ -21,11 +21,11 @@ R-project, that will one day seamlessly integrate with KOffice. RKWard
 tries to combine the power of the R-language with the (relative) ease
 of use of commercial tools like SPSS.
 
-%description -l pl
-RKWard chce udostêpniaæ ³atwo rozszerzalne, ³atwe w u¿yciu ¶rodowisko
-graficzne dla R, które którego¶ dnia zostanie zintegrowane z KOffice.
-RKWard stara siê po³±czyæ moc jêzyka R z (wzglêdn±) ³atwo¶ci± u¿ycia
-komercyjnych narzêdzi typu SPSS.
+%description -l pl.UTF-8
+RKWard chce udostÄ™pniaÄ‡ Å‚atwo rozszerzalne, Å‚atwe w uÅ¼yciu Å›rodowisko
+graficzne dla R, ktÃ³re ktÃ³regoÅ› dnia zostanie zintegrowane z KOffice.
+RKWard stara siÄ™ poÅ‚Ä…czyÄ‡ moc jÄ™zyka R z (wzglÄ™dnÄ…) Å‚atwoÅ›ciÄ… uÅ¼ycia
+komercyjnych narzÄ™dzi typu SPSS.
 
 %prep
 %setup -q
