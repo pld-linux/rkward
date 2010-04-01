@@ -1,18 +1,18 @@
 Summary:	GUI for the R-project
 Summary(pl.UTF-8):	Interfejs dla R
 Name:		rkward
-Version:	0.3.4
+Version:	0.5.2
 Release:	1
 License:	GPL
 Group:		Applications/Math
-Source0:	http://dl.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	87b20698228bdb211b17fcb3385ec93a
+Source0:	http://dlownloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
+# Source0-md5:	c272660aa2eff52e357c33a8c25e0df5
 URL:		http://rkward.sourceforge.net/
-BuildRequires:	R-base >= 2.0.0
-BuildRequires:	automake
-BuildRequires:	kdelibs-devel
+BuildRequires:	R >= 2.0.0
+BuildRequires:	cmake
+BuildRequires:	kde4-kdelibs-devel >= 4.0
 BuildRequires:	rpmbuild(macros) >= 1.129
-Requires:	R-base >= 2.0.0
+Requires:	R >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,47 +31,34 @@ komercyjnych narzędzi typu SPSS.
 %setup -q
 
 %build
-export kde_htmldir=%{_kdedocdir}
-export kde_libs_htmldir=%{_kdedocdir}
-cp -f /usr/share/automake/config.sub admin
-CXXFLAGS="%{rpmcflags} -I%{_includedir}/R"
-%configure \
-	--with-qt-libraries=%{_libdir}
-
-%{__make}
+install -d build
+cd build
+%cmake .. \
+	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DLIBR_SO=%{_libdir}/libR.so \
+%if "%{_lib}" == "lib64"
+	-DLIB_SUFFIX=64
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_libdir}/R/library}
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-install rkward/rkward.desktop $RPM_BUILD_ROOT%{_desktopdir}
-cd rkward/rbackend/rpackages
-R CMD INSTALL %{name} --library=$RPM_BUILD_ROOT%{_libdir}/R/library
-cd -
 
 %find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-(cd %{_libdir}/R/library; umask 022; cat */CONTENTS > ../doc/html/search/index.txt
- R_HOME=%{_libdir}/R ../bin/Rcmd perl ../share/perl/build-help.pl --htmllist)
-
-%postun
-if [ -f %{_libdir}/R/bin/Rcmd ];then
-(cd %{_libdir}/R/library; umask 022; cat */CONTENTS > ../doc/html/search/index.txt
- R_HOME=%{_libdir}/R ../bin/Rcmd perl ../share/perl/build-help.pl --htmllist)
-fi
-
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc README TODO AUTHORS
 %attr(755,root,root) %{_bindir}/%{name}
-%{_desktopdir}/%{name}.desktop
+%attr(755,root,root) %{_bindir}/%{name}.bin
+%{_desktopdir}/kde4/rkward.desktop
 %{_datadir}/apps/%{name}
-%{_iconsdir}/crystalsvg/*/*/*.png
+%{_iconsdir}/hicolor/*/apps/rkward.png
+%{_iconsdir}/hicolor/*/apps/rkward.svgz
 %{_libdir}/R/library/%{name}
