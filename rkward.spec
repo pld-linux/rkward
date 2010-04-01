@@ -1,11 +1,11 @@
 Summary:	GUI for the R-project
-Summary(pl.UTF-8):	Interfejs dla R
+Summary(pl.UTF-8):	Interfejs dla języka R
 Name:		rkward
 Version:	0.5.2
 Release:	1
 License:	GPL
 Group:		Applications/Math
-Source0:	http://dlownloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
 # Source0-md5:	c272660aa2eff52e357c33a8c25e0df5
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	R >= 2.0.0
@@ -22,10 +22,10 @@ tries to combine the power of the R-language with the (relative) ease
 of use of commercial tools like SPSS.
 
 %description -l pl.UTF-8
-RKWard chce udostępniać łatwo rozszerzalne, łatwe w użyciu środowisko
-graficzne dla R, które któregoś dnia zostanie zintegrowane z KOffice.
-RKWard stara się połączyć moc języka R z (względną) łatwością użycia
-komercyjnych narzędzi typu SPSS.
+RKWard ma na celu udostępnienie łatwo rozszerzalnego, łatwego w użyciu
+środowiska graficzngo dla języka R, które któregoś dnia może zostać
+zintegrowane z KOffice. RKWard jest próbą połączenia mocy języka R z
+(względną) łatwością użycia komercyjnych narzędzi typu SPSS.
 
 %prep
 %setup -q
