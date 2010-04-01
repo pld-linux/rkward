@@ -1,3 +1,7 @@
+
+%define		qtver	4.6.2
+%define		kdever	4.4.2
+
 Summary:	GUI for the R-project
 Summary(pl.UTF-8):	Interfejs dla języka R
 Name:		rkward
@@ -8,9 +12,18 @@ Group:		Applications/Math
 Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
 # Source0-md5:	c272660aa2eff52e357c33a8c25e0df5
 URL:		http://rkward.sourceforge.net/
+BuildRequires:	QtCore-devel >= %{qtver}
+BuildRequires:	QtDBus-devel >= %{qtver}
+BuildRequires:	QtGui-devel >= %{qtver}
+BuildRequires:	QtNetwork-devel >= %{qtver}
+BuildRequires:	QtScript-devel >= %{qtver}
+BuildRequires:	QtScriptTools-devel >= %{qtver}
+BuildRequires:	QtTest-devel >= %{qtver}
+BuildRequires:	QtXml-devel >= %{qtver}
 BuildRequires:	R >= 2.0.0
-BuildRequires:	cmake
-BuildRequires:	kde4-kdelibs-devel >= 4.0
+BuildRequires:	automoc4 >= 0.9.88
+BuildRequires:	cmake >= 2.8.0
+BuildRequires:	kde4-kdelibs-devel >= %{kdever}
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	R >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
