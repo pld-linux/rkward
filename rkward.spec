@@ -1,7 +1,8 @@
-
+#
+# TODO: fix "missing libs" errors 
+#
 %define		qtver	4.6.2
 %define		kdever	4.4.2
-
 Summary:	GUI for the R-project
 Summary(pl.UTF-8):	Interfejs dla języka R
 Name:		rkward
