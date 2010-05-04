@@ -1,17 +1,14 @@
-#
-# TODO: fix "missing libs" errors 
-#
 %define		qtver	4.6.2
 %define		kdever	4.4.2
 Summary:	GUI for the R-project
 Summary(pl.UTF-8):	Interfejs dla języka R
 Name:		rkward
-Version:	0.5.2
+Version:	0.5.3
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	c272660aa2eff52e357c33a8c25e0df5
+# Source0-md5:	1a1fb29b5f59b6150a3fd08bb51672b7
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
