@@ -18,14 +18,14 @@ BuildRequires:	QtScript-devel >= %{qtver}
 BuildRequires:	QtScriptTools-devel >= %{qtver}
 BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	QtXml-devel >= %{qtver}
-BuildRequires:	Requires:	R >= 2.0.0
+BuildRequires:	R >= 2.0.0
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	kde4-kdelibs-devel >= %{kdever}
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
-Requires:	Requires:	R >= 2.0.0
+Requires:	R >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
