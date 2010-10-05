@@ -1,14 +1,14 @@
-%define		qtver	4.6.2
-%define		kdever	4.4.2
+%define		qtver	4.6.3
+%define		kdever	4.5.1
 Summary:	GUI for the R-project
 Summary(pl.UTF-8):	Interfejs dla języka R
 Name:		rkward
-Version:	0.5.3
+Version:	0.5.4
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	1a1fb29b5f59b6150a3fd08bb51672b7
+# Source0-md5:	417377f8ea4623c050b46a0dc5cec88d
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
@@ -25,7 +25,7 @@ BuildRequires:	cmake >= 2.8.0
 BuildRequires:	kde4-kdelibs-devel >= %{kdever}
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
-BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	rpmbuild(macros) >= 1.577
 Requires:	R >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,12 +48,7 @@ zintegrowane z KOffice. RKWard jest próbą połączenia mocy języka R z
 install -d build
 cd build
 %cmake .. \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DLIBR_SO=%{_libdir}/libR.so \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64
-%endif
+	-DLIBR_SO=%{_libdir}/libR.so
 
 %install
 rm -rf $RPM_BUILD_ROOT
