@@ -3,12 +3,12 @@
 Summary:	GUI for the R-project
 Summary(pl.UTF-8):	Interfejs dla języka R
 Name:		rkward
-Version:	0.5.4
+Version:	0.5.5
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	417377f8ea4623c050b46a0dc5cec88d
+# Source0-md5:	0d4aedb506ab866eccf9216de43279c3
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
@@ -25,7 +25,7 @@ BuildRequires:	cmake >= 2.8.0
 BuildRequires:	kde4-kdelibs-devel >= %{kdever}
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
-BuildRequires:	rpmbuild(macros) >= 1.577
+BuildRequires:	rpmbuild(macros) >= 1.600
 Requires:	R >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
