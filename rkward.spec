@@ -3,12 +3,12 @@
 Summary:	GUI for the R-project
 Summary(pl.UTF-8):	Interfejs dla języka R
 Name:		rkward
-Version:	0.5.5
+Version:	0.5.6
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	0d4aedb506ab866eccf9216de43279c3
+# Source0-md5:	58ce297310c73ee9c617360a975f0752
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
@@ -64,10 +64,12 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc README TODO AUTHORS
-%attr(755,root,root) %{_bindir}/%{name}
-%attr(755,root,root) %{_bindir}/%{name}.bin
+%attr(755,root,root) %{_bindir}/rkward
+%attr(755,root,root) %{_libdir}/kde4/libexec/rkward.frontend
+%attr(755,root,root) %{_libdir}/kde4/libexec/rkward.rbackend
 %{_desktopdir}/kde4/rkward.desktop
-%{_datadir}/apps/%{name}
+%{_datadir}/apps/rkward
 %{_iconsdir}/hicolor/*/apps/rkward.png
 %{_iconsdir}/hicolor/*/apps/rkward.svgz
-%{_libdir}/R/library/%{name}
+%{_libdir}/R/library/rkward
+%{_mandir}/man1/rkward.1*
