@@ -3,12 +3,12 @@
 Summary:	GUI for the R-project
 Summary(pl.UTF-8):	Interfejs dla języka R
 Name:		rkward
-Version:	0.5.6
+Version:	0.6.1
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	http://downloads.sourceforge.net/rkward/%{name}-%{version}.tar.gz
-# Source0-md5:	58ce297310c73ee9c617360a975f0752
+# Source0-md5:	aa2c16c4b76f729289bd2853fa4da2a8
 URL:		http://rkward.sourceforge.net/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
@@ -19,14 +19,14 @@ BuildRequires:	QtScriptTools-devel >= %{qtver}
 BuildRequires:	QtSvg-devel >= %{qtver}
 BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	QtXml-devel >= %{qtver}
-BuildRequires:	R >= 2.0.0
+BuildRequires:	R >= 3.0.0
 BuildRequires:	automoc4 >= 0.9.88
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	kde4-kdelibs-devel >= %{kdever}
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.600
-Requires:	R >= 2.0.0
+Requires:	R >= 3.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -72,4 +72,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/rkward.png
 %{_iconsdir}/hicolor/*/apps/rkward.svgz
 %{_libdir}/R/library/rkward
+%{_libdir}/R/library/rkwardtests
 %{_mandir}/man1/rkward.1*
+#%{_datadir}/apps/katepart/syntax/r.xml
+%{_datadir}/apps/katepart/syntax/rkward.xml
+%{_datadir}/doc/kde/HTML/en/rkwardplugins
